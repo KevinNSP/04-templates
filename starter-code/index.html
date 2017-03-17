@@ -18,16 +18,23 @@
         - Insert placeholder keys.
         - If your object doesn't have values you need yet, you can add those properties in the model.
     -->
-    <script id="neighborhood-template" type="text/x-handlebars-template">
-      <h2>{{title}}</h2>
-      <p>{{category}}</p>
-      <p>{{author}}</p>
-      <p>{{authorURL}}</p>
-      <p>{{publishedOn}}</p>
-      {{{body}}}
-      <hr>
+    <script id="articles-template" type="text/x-handlebars-template">
+      <article class="clearfix" data-category="{{category}}" data-author="{{author}}">
+        <h1>{{title}}</h1>
+          <div class="byline">
+            By <address><a href="{{authorUrl}}">{{author}}</a></address>
+            published <time pubdate datetime="2000-01-01">{{publishedOn}}</time>
+          </div>
+        </header>
+        <section class="article-body">{{{body}}}</section>
+        <a href="#" class="read-on">Read on &rarr;</a>
+      </article>
     </script>
 
+    <script id="authors-menu" type="text/x-handlebars-template">
+      <p>{{author}}</p>
+
+    </script>
 
   </head>
 
@@ -55,6 +62,7 @@
           <ul id="filters">
             <li>
               <select id="author-filter">
+
                 <option value="">-- Filter by Authors --</option>
               </select>
             </li>
